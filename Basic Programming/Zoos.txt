@@ -18,9 +18,6 @@ if __name__ == '__main__':
 
 #Nodejs
 
-/*
-// Sample code to perform I/O:
-
 process.stdin.resume();
 process.stdin.setEncoding("utf-8");
 var stdin_input = "";
@@ -34,10 +31,18 @@ process.stdin.on("end", function () {
 });
 
 function main(input) {
-    process.stdout.write("Hi, " + input + ".\n");       // Writing output to STDOUT
+    process.stdout.write(Verify(input));       // Writing output to STDOUT
 }
 
-// Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
-*/
-
 // Write your code here
+function Verify(str) {
+  const freqCounter = {};
+  for (const val of str) {
+    freqCounter[val] = (freqCounter[val] || 0) + 1;
+  }
+
+  if (freqCounter['z']*2 === freqCounter['o']) {
+    return "Yes";
+  }
+  return "No";
+}
