@@ -32,7 +32,54 @@ process.stdin.on("end", function () {
 });
 
 function main(input) {
-    process.stdout.write("Hi, " + input + ".\n");       // Writing output to STDOUT
+   const data = input.toString().split("\n");
+   const testCases = parseInt(data[0], 10);
+
+   if (testCases > 0) {
+      let counter = 0;
+
+      for (let index = 0; index < testCases; index++) {
+         counter++;
+         firstEle = data[counter].trim();
+         counter++;
+         secondEle = data[counter].trim();
+         noOfCharToBeRemovedToMakeArraysAnagram(firstEle, secondEle);
+      }
+   }       
 }
 
-// Write your code here
+function noOfCharToBeRemovedToMakeArraysAnagram(arr1, arr2) {
+   const freqCounter1 = {};
+   const freqCounter2 = {};
+   const unWantedChars = {};
+   let result = 0;
+
+   for (const val of arr1) {
+      freqCounter1[val] = (freqCounter1[val] || 0) + 1;
+   }
+
+   for (const val of arr2) {
+      freqCounter2[val] = (freqCounter2[val] || 0) + 1;
+   }
+
+   for (const key in freqCounter1) {
+      if (!freqCounter2.hasOwnProperty(key)) {
+         unWantedChars[key] = freqCounter1[key];
+      } else if (freqCounter1[key] !== freqCounter2[key]) {
+         unWantedChars[key] = Math.abs(freqCounter1[key] - freqCounter2[key]);
+      }
+   }
+
+   for (const key in freqCounter2) {
+      if ( !unWantedChars.hasOwnProperty(key) && !freqCounter1.hasOwnProperty(key)) {
+         unWantedChars[key] = freqCounter2[key];
+      }
+   }
+
+
+   for (const key in unWantedChars) {
+      result += parseInt(unWantedChars[key], 10);
+   }
+
+   process.stdout.write(`${result.toString()}\n`);    // Writing output to STDOUT
+}
