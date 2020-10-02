@@ -27,5 +27,12 @@ process.stdin.on("end", function () {
 });
 
 function main(input) {
-    process.stdout.write("Hi, " + input + ".\n");       // Writing output to STDOUT
+    process.stdout.write(Summation(input));       // Writing output to STDOUT
+}
+
+function Summation(string) {
+    sum = 0;
+    for (var i = 0; i < string.length; i ++)
+      sum += (string.charCodeAt(i) - 96);
+    return sum;
 }
