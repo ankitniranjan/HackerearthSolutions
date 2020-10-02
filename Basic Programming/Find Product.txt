@@ -30,9 +30,17 @@ process.stdin.on("end", function () {
 });
 
 function main(input) {
-    process.stdout.write(Product());       // Writing output to STDOUT
+    process.stdout.write(Product(input));       // Writing output to STDOUT
 }
 
 // Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
 
 // Write your code here
+function Product(arr) {
+  prod = 1;
+  for (var item of arr) {
+    console.log(item)
+    prod = prod*item;
+  }
+  return prod % (10**9 + 7);
+}
