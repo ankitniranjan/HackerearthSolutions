@@ -1,0 +1,20 @@
+# Python
+
+# Write your code here
+def Verify(str):
+    freqCounter = {};
+    (freqCounter['z'], freqCounter['o']) = (0, 0)
+    for val in str:
+        freqCounter[val] += 1 
+
+    if freqCounter['z']*2 == freqCounter['o']:
+        return "Yes"
+    return "No"
+
+if __name__ == '__main__':
+    print(Verify(input()))
+	
+------------------------------------------------------------------------------
+
+#Nodejs
+
