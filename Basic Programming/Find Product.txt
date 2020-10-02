@@ -12,7 +12,8 @@ if __name__ == '__main__':
     arr = list(map(int, input().split()))
     print(Product(arr))
     
-    
+ ------------------------------------------------------------------
+ 
  #Nodejs
  
 // Sample code to perform I/O:
