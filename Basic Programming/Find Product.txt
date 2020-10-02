@@ -1,0 +1,38 @@
+#Python3
+
+# Write your code here
+def Product(arr):
+    prod = 1
+    for i in arr:
+        prod = prod*i
+    return prod%(10**9 + 7)
+
+if __name__ == '__main__':
+    N = int(input())
+    arr = list(map(int, input().split()))
+    print(Product(arr))
+    
+    
+ #Nodejs
+ 
+// Sample code to perform I/O:
+
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+var stdin_input = "";
+
+process.stdin.on("data", function (input) {
+    stdin_input += input;                               // Reading input from STDIN
+});
+
+process.stdin.on("end", function () {
+   main(stdin_input);
+});
+
+function main(input) {
+    process.stdout.write(Product());       // Writing output to STDOUT
+}
+
+// Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
+
+// Write your code here
