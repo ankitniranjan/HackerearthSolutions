@@ -17,8 +17,3 @@ if __name__  == '__main__':
     N = int(input())
     arr = [x for x in input().split()]
     print(Divisible(arr,N))
-    
---------------------------------------------------------
-
-#Nodejs
-
