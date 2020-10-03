@@ -1,0 +1,47 @@
+#python3
+
+# Write your code here
+def VCPair(arr,N):
+    vowels = ['a','e','i','o','u']
+    count = 0
+    for i in range(N-1):
+        if arr[i] not in vowels and arr[i+1] in vowels:
+            count += 1
+    return count
+
+if __name__ == '__main__':
+    for _ in range(int(input())):
+        N = int(input())
+        arr = list(input())
+        print(VCPair(arr,N))
+        
+-----------------------------------------------------------------
+#Nodejs
+
+const prompt = require('prompt')
+
+prompt.start();
+
+function VCPairs(arr,N) {
+  vowels = ['a','e','i','o','u'];
+  count = 0;
+  for (let i=0; i<N-1; i++) {
+    if (!vowels.includes(arr[i]) && vowels.includes(arr[i+1])) {
+      count++;
+    }
+  }
+  return count;
+}
+
+prompt.get(['T', 'N', 'String'], function (err, result) {
+    if (err) { return onErr(err); }
+    T = result.T;
+    N = result.N;
+    arr = result.String;
+    console.log(VCPairs(arr,N));
+})
+
+function onErr(err) {
+    console.log(err);
+    return 1;
+}
